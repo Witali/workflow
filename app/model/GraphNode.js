@@ -1,4 +1,4 @@
-Ext.define('MyApp.model.GraphComponent', {
+Ext.define('MyApp.model.GraphNode', {
     extend: 'Ext.data.Model',
 
     fields: [
