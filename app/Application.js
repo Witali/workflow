@@ -9,8 +9,9 @@ Ext.define('MyApp.Application', {
     ],
 
     controllers: [
-        // TODO: add controllers here
+
         'Document',
+		'Graph',
         'Main'
     ],
 

@@ -1,23 +1,31 @@
-Ext.define('MyApp.controller.Document', {
+Ext.define('MyApp.controller.Graph', {
     extend: 'Ext.app.Controller',
 	
-	init:function(){
+	views: ['graph.Main'],
+	models: ['GraphNode'],
+	stores: ['Graph'],
+	
+	init: function() {
 
-	this.listWidgetName = this.widgetPrefix + 'list';
+		var ctrl = {};
 
-	var ctrl = {};
+		ctrl['list'] = {
+			render: function(list) {
 
-	ctrl['list'] = {
-		render: function(list) {
-			
-		}
-	};
+			}
+		};
 
 
-	this.control(ctrl);
+		this.control(ctrl);
 
-	this.callParent(arguments);
-}
+		this.callParent(arguments);
+	},
+	
+	onRenderGraphView: function() {
+		
+	}
+
+
 
 
 });

@@ -1,4 +1,4 @@
-Ext.define('MyApp.store.Graphs', {
+Ext.define('MyApp.store.Graph', {
     extend: 'Ext.data.Store',
     model: 'MyApp.model.GraphNode',
 	
