@@ -6,42 +6,16 @@ Ext.define('MyApp.controller.Graph', {
 	stores: ['Graph'],
 	
 	init: function() {
+		
+		
 
-		var ctrl = {};
+		var me = this,
+			ctrl = {};
 
 
 
 		ctrl['graph-main'] = {
-			render: function(view) {
-
-				
-				var sprite = Ext.create('Ext.draw.Sprite', {
-					type: 'circle',
-					fill: '#0f0',
-					surface: view.surface,
-					radius: 5,
-					x: 100,
-					y: 100
-				});
-				
-				sprite.show(true);
-
-				sprite = Ext.create('Ext.draw.Sprite', {
-					type: 'rect',
-					surface: view.surface,
-					'stroke-width': 1,
-					stroke: '#666', 
-					width: 200,
-					height: 50,
-					text: 'Иван Иваныч Иванов ходит дома без штанов',
-					fill: '#FFF',
-					x: 100,
-					y: 100,
-					group: 'rectangles'
-				});
-
-				sprite.show(true);
-			}
+			render: me.render.bind(me)
 		};
 
 
@@ -50,9 +24,87 @@ Ext.define('MyApp.controller.Graph', {
 		this.callParent(arguments);
 	},
 	
-	onRenderGraphView: function() {
+	render: function(view) {
+		
+		var me = this,
+			store = me.getGraphStore(),
+			nextIndex = store.find('type', 'start'),
+			next = nextIndex >= 0 ? store.getAt(nextIndex) : 0,
+			nextId,
+			x = 50.5,
+			y = 50.5;
+			
+		
+		
+		while(next) {
+			
+			me.drawBlock(view.surface, next.get('type'), next.get('text'), x, y);
+			
+			y += 80;
+
+			nextId = next.get('output') || next.get('outputYes');
+			next = nextId && store.getById(nextId);
+		}
+		
+		
+		
+	},
+	
+	drawBlock: function(surface, type, text, x, y) {
+		
+		var sprite;
+
+		sprite = Ext.create('Ext.draw.Sprite', {
+			type: "text",
+			surface: surface,
+			text: text,
+			width: 160,
+			height: 20,
+			fill: "#000",
+			x: x + 30,
+			y: y + 20,
+			font: "18px"
+		});
+
+		sprite.show(true);	
+		
+		var path, shapeType = 'rect';
+
+		switch(type) {
+			case 'start':
+			case 'finish':
+				
+				break;
+				
+			case 'branch':
+				path = 'M 0 20 L 20 0 L 180 0 L 200 20 L 180 40 L 20 40 Z';
+				path = path.replace(/([ML]) (\d+) (\d+)/g, function(part, t, px, py) {
+					return t + ' ' + (x + (px|0)) + ' ' + (y + (py|0)) + ' ';
+				});
+				shapeType = 'path';
+				break;
+			
+			
+		}
+
+		sprite = Ext.create('Ext.draw.Sprite', {
+			type: shapeType,
+			path: path,
+			surface: surface,
+			'stroke-width': 1,
+			stroke: '#666', 
+			width: 200,
+			height: 40,
+			fill: '#FFF',
+			x: x,
+			y: y
+		});
+
+		sprite.show(true);
 		
 	}
+	
+	
 
 
 

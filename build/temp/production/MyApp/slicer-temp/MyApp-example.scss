@@ -1,4 +1,4 @@
-$image-search-path: 'C:/Users/vrudik/Documents/ext_app/build/production/MyApp/resources';
+$image-search-path: 'D:/Archive/devel/job-rusbitech/build/production/MyApp/resources';
 $theme-name:  'ext-theme-classic' !default;
 $include-ext-abstractcomponent: true;
 $include-ext-abstractmanager: true;
@@ -535,12 +535,16 @@ $include-ext-view-view: true;
 $include-ext-window-messagebox: true;
 $include-ext-window-window: true;
 $include-myapp-application: true;
-$include-myapp-app-application: true;
+$include-myapp-controller-document: true;
+$include-myapp-controller-graph: true;
 $include-myapp-controller-main: true;
 $include-myapp-model-document: true;
+$include-myapp-model-graphnode: true;
 $include-myapp-store-documents: true;
+$include-myapp-store-graph: true;
 $include-myapp-view-main: true;
 $include-myapp-view-viewport: true;
+$include-myapp-view-graph-main: true;
 /* including package ext-theme-base */
 @import '../../../../../ext/packages/ext-theme-base/sass/etc/all';
 /* including package ext-theme-neutral */
