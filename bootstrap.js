@@ -828,11 +828,16 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.Window"
   ],
   "MyApp.Application": [],
+  "MyApp.controller.Document": [],
+  "MyApp.controller.Graph": [],
   "MyApp.controller.Main": [],
   "MyApp.model.Document": [],
+  "MyApp.model.GraphNode": [],
   "MyApp.store.Documents": [],
+  "MyApp.store.Graph": [],
   "MyApp.view.Main": [],
-  "MyApp.view.Viewport": []
+  "MyApp.view.Viewport": [],
+  "MyApp.view.graph.Main": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1820,13 +1825,20 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.window"
   ],
   "MyApp.Application": [],
+  "MyApp.controller.Document": [],
+  "MyApp.controller.Graph": [],
   "MyApp.controller.Main": [],
   "MyApp.model.Document": [],
+  "MyApp.model.GraphNode": [],
   "MyApp.store.Documents": [],
+  "MyApp.store.Graph": [],
   "MyApp.view.Main": [
     "widget.app-main"
   ],
-  "MyApp.view.Viewport": []
+  "MyApp.view.Viewport": [],
+  "MyApp.view.graph.Main": [
+    "widget.graph-main"
+  ]
 });
 Ext.setVersion("ext-theme-base", "4.2.1");
 Ext.setVersion("ext-theme-classic", "4.2.1");

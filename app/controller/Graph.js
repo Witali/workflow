@@ -29,11 +29,12 @@ Ext.define('MyApp.controller.Graph', {
 				sprite = Ext.create('Ext.draw.Sprite', {
 					type: 'rect',
 					surface: view.surface,
-					'stroke-width': 10,
-					stroke: '#056567', 
+					'stroke-width': 1,
+					stroke: '#666', 
 					width: 200,
 					height: 50,
-					fill: '#00f',
+					text: 'Иван Иваныч Иванов ходит дома без штанов',
+					fill: '#FFF',
 					x: 100,
 					y: 100,
 					group: 'rectangles'
