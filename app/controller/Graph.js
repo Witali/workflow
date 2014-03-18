@@ -46,6 +46,10 @@ Ext.define('MyApp.controller.Graph', {
 			next = nextId && store.getById(nextId);
 		}
 		
+		setTimeout(function() {
+      view.surface.el.setSize(500, 1000);
+		}, 200);
+		
 		
 		
 	},
@@ -73,7 +77,7 @@ Ext.define('MyApp.controller.Graph', {
 		switch(type) {
 			case 'start':
 			case 'finish':
-				path = 'M60 165 a 25 25 0 0 1 0 -50 l 150 0 a 25 25 0 0 1 0 50 z';
+				path = 'M' + (25 + x) + ' ' + (45 + y) + 'a 25 25 0 0 1 0 -50 l 150 0 a 25 25 0 0 1 0 50 z';
 				shapeType = 'path';
 				break;
 				
